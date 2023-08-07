@@ -14,4 +14,4 @@
 ---
 include:
   - board: nice_nano_v2
-    shield: dac6x6
+    shield: shield: [ "dac6x6_left", "dac6x6_right", "settings_reset"]
