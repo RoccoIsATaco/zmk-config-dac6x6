@@ -1,7 +1,8 @@
 @@ -0,0 +1,166 @@
+
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 
 // ##########################################################
@@ -12,6 +13,7 @@
 #define SYM_L   1
 #define NAV_L   2
 #define NAV2_L  3
+
 //#define OTHER_L 4
 
 #define DEFAULT 0
@@ -26,9 +28,10 @@
 #define WINDOW_RT    LA(TAB)
 #define TAB_LT       LC(LS(TAB))
 #define TAB_RT       LC(TAB)
-// NOT USED  &kp LG(LC(LEFT))  &kp LG(LC(RIGHT))
 
+// NOT USED  &kp LG(LC(LEFT))  &kp LG(LC(RIGHT))
 // Generic bindings
+
 #define KILL_WINDOW  LA(F4)
 #define MAXIMIZE     LG(UP)
 #define MINIMIZE     LG(DOWN)
@@ -50,9 +53,10 @@
 
 
 
- {
+/ {
     conditional_layers {
         compatible = "zmk,conditional-layers";
+  
         tri_layer {
             if-layers = <1 2>;
             then-layer = <4>;
@@ -61,12 +65,14 @@
     
     macros {
         ZMK_MACRO(inv_qm,
+  
             wait-ms = <10>;
             tap-ms = <10>;
-            bindings
-                = <&macro_press &kp LALT>
-                , <&macro_tap &kp KP_N1 &kp KP_N6 &kp KP_N8>
-                , <&macro_release &kp LALT>;
+            bindings =
+                <&macro_press &kp LALT>,
+                <&macro_tap &kp KP_N1 &kp KP_N6 &kp KP_N8>,
+                <&macro_release &kp LALT>;
+
         )
     };
     
@@ -78,8 +84,7 @@
      //       #binding-cells = <0>;
      //       tapping-term-ms = <200>;
      //       bindings = <&mt LSHIFT CAPSLOCK>, <&kp LCTRL>;
-     //   };
-        
+     //   };   
      //   td_mt_rs: tap_dance_mod_tap {
      //       compatible = "zmk,behavior-tap-dance";
      //       label = "TAP_DANCE_RSHIFT";
